@@ -3,6 +3,8 @@ package spring;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import spring.soundsystem.CDPlayer;
 import spring.soundsystem.CompactDisc;
 import spring.soundsystem.MediaPlayer;
@@ -12,6 +14,8 @@ import spring.soundsystem.SgtPeppers;
 //@ComponentScan("spring.soundsystem")
 //@ComponentScan(basePackages = ("soundsystem", "vidio"))
 //@ComponentScan(basePackageClasses = CompactDisc.class)类所在的包为基础包
+@Import(Config.class)//引用其他java配置
+//@ImportResource("wenjianming.xml")//引用xml配置
 public class CDPlayerConfig {
 
     @Bean(name = "lonelyHeartsClubBand")//不使用name属性时，bean名为方法名
