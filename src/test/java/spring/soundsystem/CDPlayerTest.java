@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import spring.CDPlayerConfig;
+import spring.aop.concert.Woodstock;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = CDPlayerConfig.class)
@@ -25,6 +26,8 @@ public class CDPlayerTest {
     @Autowired
     private CompactDisc cd;
 
+    @Autowired
+    private Woodstock woodstock;
 
     @Test
     public void play() {
@@ -36,5 +39,11 @@ public class CDPlayerTest {
     public void cdShouldNotBeNull() {
         assertNotNull(cd);
     }
+
+    @Test
+    public void performce() {
+        woodstock.perform();
+    }
+
 
 }
